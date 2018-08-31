@@ -1,7 +1,7 @@
 <?php
 
 //print_r($_SERVER);
-
+echo 'kk';
 function getheaderData(){
 	foreach($_SERVER as $name => $value) 
     { 
