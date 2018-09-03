@@ -73,16 +73,11 @@ input.ng-valid {
       
       <input type="submit"
       ng-disabled="myForm.user.$dirty && myForm.user.$invalid ||  
-      myForm.email.$dirty && myForm.email.$invalid" ng-click="formsubmit(myForm.$valid)">
+      myForm.email.$dirty && myForm.email.$invalid">
     <!-- <button type="submit" class="btn btn-default">Submit</button> -->
 
   </form>
-  <p>
-    <pre ng-model="result">
-                {{result}}
-            </pre>
-
-  </p>
+  <p>{{myTxt}}</p>
 </div>
 <?php
   include "includes/footer.php";
@@ -91,7 +86,7 @@ input.ng-valid {
 
 <script>
 var app = angular.module('myApp', []);
-/* app.controller('formCtrl', function($scope) {
+app.controller('formCtrl', function($scope) {
     //$scope.name = "John";
     //$scope.user = 'John Doe';
     //$scope.email = 'John.Doe@gmail.com';
@@ -99,36 +94,7 @@ var app = angular.module('myApp', []);
     $scope.myFunc = function () {
         $scope.myTxt = "You clicked submit!";
     }
-}); */
-
-app.controller("formCtrl", ['$scope', '$http', function($scope, $http) {
-        $scope.url = 'submit.php';
- 
-        $scope.formsubmit = function(isValid) {
- 
- 
-            if (isValid) {
-              
- 
-                $http.post($scope.url, {"name": $scope.name, "email": $scope.email, "Username": $scope.username, "password": $scope.password}).
-                        then(function(data, status) {
-                            console.log(data);
-                            $scope.status = status;
-                            $scope.data = data;
-                            $scope.result = data; // Show result from server in our <pre></pre> element
-                        })
-            }else{
-                
-                  alert('Form is not valid');
-            }
- 
- 
-        }
- 
- 
- 
- 
-    }]);
+});
 </script>
 
 </body>
