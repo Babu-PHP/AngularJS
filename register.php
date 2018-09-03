@@ -54,9 +54,9 @@ input.ng-valid {
     </div>
     <div class="form-group">
       <label for="email">Username:</label>
-      <input type="text" class="form-control" name="user" ng-model="user" required>
-      <span style="color:red" ng-show="myForm.user.$dirty && myForm.user.$invalid">
-      <span ng-show="myForm.user.$error.required">Username is required.</span>
+      <input type="text" class="form-control" name="username" ng-model="username" required>
+      <span style="color:red" ng-show="myForm.username.$dirty && myForm.username.$invalid">
+      <span ng-show="myForm.username.$error.required">Username is required.</span>
       </span>
     </div>
     <div class="form-group">
@@ -72,7 +72,7 @@ input.ng-valid {
     
       
       <input type="submit"
-      ng-disabled="myForm.user.$dirty && myForm.user.$invalid ||  
+      ng-disabled="myForm.username.$dirty && myForm.username.$invalid ||  
       myForm.email.$dirty && myForm.email.$invalid" ng-click="formsubmit(myForm.$valid)">
     <!-- <button type="submit" class="btn btn-default">Submit</button> -->
 
@@ -110,7 +110,7 @@ app.controller("formCtrl", ['$scope', '$http', function($scope, $http) {
             if (isValid) {
               
  
-                $http.post($scope.url, {"name": $scope.name, "email": $scope.email, "Username": $scope.username, "password": $scope.password}).
+                $http.post($scope.url, {"name": $scope.name, "email": $scope.email, "username": $scope.username, "password": $scope.password}).
                         then(function(data, status) {
                             console.log(data);
                             $scope.status = status;
