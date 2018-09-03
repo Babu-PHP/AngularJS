@@ -26,27 +26,16 @@
   include "includes/nav.php";
 ?>
 
-<div class="container" ng-app="myApp" ng-controller="formCtrl">
+<div class="container">
   <h2>Vertical (basic) form</h2>
-  <form name="myForm" novalidate>
-    <div class="form-group">
-      <label for="email">Name:</label>
-      <input type="text" class="form-control" name="firstname" ng-model="firstname">
-    </div>
+  <form action="/action_page.php">
     <div class="form-group">
       <label for="email">Email:</label>
-      <input type="email" class="form-control" name="email" ng-model="email">
-    </div>
-    <div class="form-group">
-      <label for="email">Username:</label>
-      <input type="text" class="form-control" name="user" ng-model="user" required>
-      <span style="color:red" ng-show="myForm.user.$dirty && myForm.user.$invalid">
-      <span ng-show="myForm.user.$error.required">Username is required.</span>
-      </span>
+      <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
     </div>
     <div class="form-group">
       <label for="pwd">Password:</label>
-      <input type="password" class="form-control" ng-model="password">
+      <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd">
     </div>
     <div class="checkbox">
       <label><input type="checkbox" name="remember"> Remember me</label>
@@ -57,14 +46,6 @@
 <?php
   include "includes/footer.php";
 ?>
-
-
-<script>
-var app = angular.module('myApp', []);
-app.controller('formCtrl', function($scope) {
-    $scope.firstname = "John";
-});
-</script>
 
 </body>
 </html>
