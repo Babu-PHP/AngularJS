@@ -102,6 +102,8 @@ var app = angular.module('myApp', []);
 }); */
 
 app.controller("formCtrl", ['$scope', '$http', function($scope, $http) {
+   var vm = this; // self-referencing local variable required for when promise resolves
+    vm.model = {};
         $scope.url = 'submit.php';
  
         $scope.formsubmit = function(isValid) {
@@ -116,6 +118,10 @@ app.controller("formCtrl", ['$scope', '$http', function($scope, $http) {
                             $scope.status = status;
                             $scope.data = data;
                             $scope.result = data; // Show result from server in our <pre></pre> element
+
+                            vm.model = {}; // this resets the model
+                            vm.myForm.$setPristine(); // this resets the form itself
+
                         })
             }else{
                 
